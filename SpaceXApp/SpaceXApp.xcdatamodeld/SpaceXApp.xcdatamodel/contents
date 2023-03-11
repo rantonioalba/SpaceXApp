@@ -1,4 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CLinks" representedClassName="CLinks" syncable="YES">
+        <attribute name="articleLink" optional="YES" attributeType="String"/>
+        <attribute name="flickrImages" optional="YES" attributeType="Transformable" valueTransformerName="ArrayOfStringsTransformer"/>
+        <attribute name="imagesflickr" optional="YES" attributeType="String"/>
+        <attribute name="missionPatch" optional="YES" attributeType="String"/>
+        <attribute name="missionPatchSmall" optional="YES" attributeType="String"/>
+        <attribute name="videoLink" optional="YES" attributeType="String"/>
+        <attribute name="wikipedia" optional="YES" attributeType="String"/>
+        <attribute name="youtubeID" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CRocket" representedClassName="CRocket" syncable="YES">
+        <attribute name="rocketID" optional="YES" attributeType="String"/>
+        <attribute name="rocketName" optional="YES" attributeType="String"/>
+        <attribute name="rocketType" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CRocketLaunch" representedClassName="CRocketLaunch" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="flightNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="launchDateUTC" optional="YES" attributeType="String"/>
+        <attribute name="missionName" optional="YES" attributeType="String"/>
+        <relationship name="launchSite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRocketLaunchSite"/>
+        <relationship name="links" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CLinks"/>
+        <relationship name="rocket" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CRocket"/>
+    </entity>
+    <entity name="CRocketLaunchSite" representedClassName="CRocketLaunchSite" syncable="YES">
+        <attribute name="siteId" optional="YES" attributeType="String"/>
+        <attribute name="siteName" optional="YES" attributeType="String"/>
+        <attribute name="siteNameLong" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CLinks" positionX="-18" positionY="63" width="128" height="149"/>
+        <element name="CRocket" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="CRocketLaunch" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="CRocketLaunchSite" positionX="-36" positionY="45" width="128" height="74"/>
+    </elements>
 </model>
